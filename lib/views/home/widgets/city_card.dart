@@ -17,6 +17,10 @@ class CityCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.zero, // coins carrés
+      ),
+      color: Colors.white,
       elevation: 5.0,
       child: SizedBox(
         height: 150,

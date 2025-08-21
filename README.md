@@ -1,5 +1,8 @@
 # Dyma Flutter Project
 
+![Flutter](https://img.shields.io/badge/Flutter-3.22-blue)
+![Dart](https://img.shields.io/badge/Dart-3.4-blue)
+
 A Flutter project created for learning and experimenting with Flutter development.
 
 ## Summary
@@ -10,6 +13,8 @@ A Flutter project created for learning and experimenting with Flutter developmen
     - [🚀 Getting Started](#-getting-started)
     - [🔄 Recommended Git Workflow](#-recommended-git-workflow)
     - [📌 Useful Commands](#-useful-commands)
+  - [Project structure](#project-structure)
+  - [Use a Dart \& Flutter package](#use-a-dart--flutter-package)
 
 ## GitHub
 
@@ -63,3 +68,32 @@ A Flutter project created for learning and experimenting with Flutter developmen
   ```bash
   git log --oneline
   ```
+
+## Project structure
+
+```text
+lib/
+  main.dart         # entry point
+  home.dart         # home screen
+  models/           # data classes
+  widgets/          # reusable UI components
+```
+
+## Use a Dart & Flutter package
+
+1. [Search package here](https://pub.dev/)
+2. Copy package name and paste in _**pubspec.yaml**_, at _dependencies_ :
+
+   ```yaml
+   dependencies:
+     flutter:
+       sdk: flutter
+
+     cupertino_icons: ^1.0.8
+     intl: ^0.20.2
+   ```
+
+   _**^** : means that we want to use the most recent dependencies_
+
+3. Save file
+4. Import the package in the file where you want to use it
