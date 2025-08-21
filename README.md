@@ -1,16 +1,58 @@
-# dyma_flutter_project
+# Dyma Flutter Project
 
-A new Flutter project.
+A Flutter project created for learning and experimenting with Flutter development.
 
-## Getting Started
+## 🚀 Getting Started
 
-This project is a starting point for a Flutter application.
+### Clone the repository
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+git clone https://github.com/teowaep/dyma_flutter_project.git
+cd dyma_flutter_project
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Install dependencies
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter pub get
+```
+
+### Run the app
+
+```bash
+flutter run
+```
+
+---
+
+## 🔄 Recommended Git Workflow
+
+1. **Update your local project before working**
+
+   ```bash
+   git pull
+   ```
+
+2. **Make your changes**
+
+3. **Save and push changes**
+   ```bash
+   git add .
+   git commit -m "Describe your changes"
+   git push
+   ```
+
+---
+
+## 📌 Useful Commands
+
+- Check project status
+
+  ```bash
+  git status
+  ```
+
+- View commit history
+  ```bash
+  git log --oneline
+  ```
