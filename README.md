@@ -73,10 +73,12 @@ A Flutter project created for learning and experimenting with Flutter developmen
 
 ```text
 lib/
-  main.dart         # entry point
-  home.dart         # home screen
+  datas/            # local data
   models/           # data classes
-  widgets/          # reusable UI components
+  view/             # all UI
+    folder/         # pages features
+      widgets/      # reusable UI components
+  main.dart         # entry point
 ```
 
 ## Use a Dart & Flutter package
