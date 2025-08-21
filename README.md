@@ -2,30 +2,38 @@
 
 A Flutter project created for learning and experimenting with Flutter development.
 
-## 🚀 Getting Started
+## Summary
 
-### Clone the repository
+- [Dyma Flutter Project](#dyma-flutter-project)
+  - [Summary](#summary)
+  - [GitHub](#github)
+    - [🚀 Getting Started](#-getting-started)
+    - [🔄 Recommended Git Workflow](#-recommended-git-workflow)
+    - [📌 Useful Commands](#-useful-commands)
 
-```bash
-git clone https://github.com/teowaep/dyma_flutter_project.git
-cd dyma_flutter_project
-```
+## GitHub
 
-### Install dependencies
+### 🚀 Getting Started
 
-```bash
-flutter pub get
-```
+- Clone the repository
 
-### Run the app
+  ```bash
+  git clone https://github.com/teowaep/dyma_flutter_project.git
+  cd dyma_flutter_project
+  ```
 
-```bash
-flutter run
-```
+- Install dependencies
 
----
+  ```bash
+  flutter pub get
+  ```
 
-## 🔄 Recommended Git Workflow
+- Run the app
+  ```bash
+  flutter run
+  ```
+
+### 🔄 Recommended Git Workflow
 
 1. **Update your local project before working**
 
@@ -42,9 +50,7 @@ flutter run
    git push
    ```
 
----
-
-## 📌 Useful Commands
+### 📌 Useful Commands
 
 - Check project status
 
@@ -53,6 +59,7 @@ flutter run
   ```
 
 - View commit history
+
   ```bash
   git log --oneline
   ```
