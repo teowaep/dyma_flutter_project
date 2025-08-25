@@ -28,7 +28,18 @@ class TripActivityList extends StatelessWidget {
             subtitle: Text(activity.city),
             trailing: IconButton(
               icon: Icon(Icons.delete, color: Colors.red),
-              onPressed: () => deleteTripActivity(activity.id),
+              onPressed: () {
+                deleteTripActivity(activity.id);
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(
+                    content: Text(
+                      'L\'activité ${activity.name} a été supprimée du voyage',
+                    ),
+                    backgroundColor: Colors.red,
+                    duration: Duration(seconds: 3),
+                  ),
+                );
+              },
             ),
           ),
         );

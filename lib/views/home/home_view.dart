@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'widgets/city_card.dart';
 import '../../models/city_model.dart';
 import '../../widgets/ask_modal.dart';
+import '../../widgets/dyma_drawer.dart';
 
 class HomeView extends StatefulWidget {
   static const String routeName = '/';
@@ -27,11 +28,8 @@ class _HomeState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        leading: Icon(Icons.home),
-        title: Text('dymatrip'),
-        actions: [Icon(Icons.more_vert)],
-      ),
+      appBar: AppBar(title: Text('dymatrip')),
+      drawer: DymaDrawer(),
       body: Container(
         padding: EdgeInsets.all(10.0),
         child: Column(
