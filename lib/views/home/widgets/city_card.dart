@@ -1,18 +1,11 @@
 import 'package:flutter/material.dart';
 
-class CityCard extends StatelessWidget {
-  final String cityName;
-  final String imagePath;
-  final bool checked;
-  final VoidCallback updateChecked;
+import '../../../models/city_model.dart';
 
-  const CityCard({
-    super.key,
-    required this.cityName,
-    required this.imagePath,
-    required this.checked,
-    required this.updateChecked,
-  });
+class CityCard extends StatelessWidget {
+  final City city;
+
+  const CityCard({super.key, required this.city});
 
   @override
   Widget build(BuildContext context) {
@@ -29,35 +22,19 @@ class CityCard extends StatelessWidget {
           children: [
             Ink.image(
               fit: BoxFit.cover,
-              image: AssetImage(imagePath),
-              child: InkWell(onTap: updateChecked),
+              image: AssetImage(city.image),
+              child: InkWell(onTap: () {}),
             ),
-            Padding(
-              padding: EdgeInsets.all(10.0),
-              child: Column(
-                children: [
-                  Expanded(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.end,
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Icon(
-                          checked ? Icons.star : Icons.star_border,
-                          color: Colors.white,
-                          size: 40,
-                        ),
-                      ],
-                    ),
-                  ),
-                  Row(
-                    children: [
-                      Text(
-                        cityName,
-                        style: TextStyle(color: Colors.white, fontSize: 30),
-                      ),
-                    ],
-                  ),
-                ],
+            Positioned(
+              top: 10,
+              left: 10,
+              child: Container(
+                padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                color: Colors.black54,
+                child: Text(
+                  city.name,
+                  style: TextStyle(fontSize: 35, color: Colors.white),
+                ),
               ),
             ),
           ],

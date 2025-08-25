@@ -1,4 +1,4 @@
-import '../models/activity.model.dart';
+import '../models/activity_model.dart';
 
 List<Activity> activities = [
   Activity(
@@ -8,7 +8,7 @@ List<Activity> activities = [
     city: 'Paris',
   ),
   Activity(
-    name: 'Les buttes Chaumont',
+    name: 'Les Buttes Chaumont',
     image: 'assets/images/activities/chaumont.jpg',
     id: 'a2',
     city: 'Paris',
