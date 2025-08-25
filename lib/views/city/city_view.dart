@@ -1,18 +1,21 @@
-import 'package:dyma_flutter_project/views/city/widgets/trip_activity_list.dart';
 import 'package:flutter/material.dart';
 
-import '../../models/trip_model.dart';
-import '../../models/activity_model.dart';
-import '../../datas/data.dart' as data;
-
+import 'widgets/trip_activity_list.dart';
 import 'widgets/activity_list.dart';
 import 'widgets/trip_overview.dart';
-import '../../widgets/data.dart';
+
+import '../../datas/data.dart' as data;
+
+import '../../models/activity_model.dart';
+import '../../models/city_model.dart';
+import '../../models/trip_model.dart';
 
 class CityView extends StatefulWidget {
+  static const String routeName = '/city';
   final List<Activity> activities = data.activities;
+  final City city;
 
-  CityView({super.key});
+  CityView({super.key, required this.city});
 
   Flex showContext({
     required BuildContext context,
@@ -31,10 +34,10 @@ class CityView extends StatefulWidget {
   }
 
   @override
-  State<CityView> createState() => _CityState();
+  State<CityView> createState() => _CityViewState();
 }
 
-class _CityState extends State<CityView> with WidgetsBindingObserver {
+class _CityViewState extends State<CityView> with WidgetsBindingObserver {
   late Trip mytrip;
   late int index;
   late List<Activity> activities;
@@ -42,32 +45,14 @@ class _CityState extends State<CityView> with WidgetsBindingObserver {
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance.addObserver(this);
     mytrip = Trip(activities: [], city: 'Paris', date: null);
     index = 0;
   }
 
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    activities = Data.of(context).activities;
-  }
-
   List<Activity> get tripActivities {
-    return activities
+    return widget.activities
         .where((activity) => mytrip.activities.contains(activity.id))
         .toList();
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    super.didChangeAppLifecycleState(state);
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
   }
 
   void setDate() {
@@ -85,7 +70,7 @@ class _CityState extends State<CityView> with WidgetsBindingObserver {
     });
   }
 
-  void switchIndex(newIndex) {
+  void switchIndex(int newIndex) {
     setState(() {
       index = newIndex;
     });
@@ -107,23 +92,30 @@ class _CityState extends State<CityView> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
-    activities = Data.of(context).activities;
-
     return Scaffold(
       appBar: AppBar(
-        leading: Icon(Icons.chevron_left),
-        title: Text('Paris'),
+        leading: IconButton(
+          icon: Icon(Icons.chevron_left),
+          onPressed: () {
+            Navigator.pop(context);
+          },
+        ),
+        title: Text('Organisation du voyage'),
         actions: [Icon(Icons.more_vert)],
       ),
       body: Container(
         child: widget.showContext(
           context: context,
           children: [
-            TripOverview(setDate: setDate, trip: mytrip),
+            TripOverview(
+              cityName: widget.city.name,
+              setDate: setDate,
+              trip: mytrip,
+            ),
             Expanded(
               child: index == 0
                   ? ActivityList(
-                      activities: activities,
+                      activities: widget.activities,
                       selectedActivities: mytrip.activities,
                       toggleActivity: toggleActivity,
                     )

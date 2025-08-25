@@ -2,8 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'widgets/city_card.dart';
 import '../../models/city_model.dart';
+import '../../widgets/ask_modal.dart';
 
 class HomeView extends StatefulWidget {
+  static const String routeName = '/';
+
   const HomeView({super.key});
 
   @override
@@ -17,11 +20,8 @@ class _HomeState extends State<HomeView> {
     City(name: 'Nice', image: 'assets/images/nice.jpg'),
   ];
 
-  void switchCityCheck(city) {
-    int index = cities.indexOf(city);
-    setState(() {
-      cities[index]['checked'] = !cities[index]['checked'];
-    });
+  void openModal(BuildContext context) {
+    askModal(context, "Hello, do you want to continue?");
   }
 
   @override
@@ -40,6 +40,12 @@ class _HomeState extends State<HomeView> {
             ...cities.map((city) {
               return CityCard(city: city);
             }),
+            ElevatedButton(
+              onPressed: () {
+                openModal(context);
+              },
+              child: Text('modal'),
+            ),
           ],
         ),
       ),

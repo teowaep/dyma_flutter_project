@@ -14,30 +14,26 @@ class TripActivityList extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: ListView.builder(
-        itemBuilder: (context, index) {
-          var activity = activities[index];
-          return Card(
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.zero, // coins carrés
+    return ListView.builder(
+      itemBuilder: (context, index) {
+        var activity = activities[index];
+        return Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.zero, // coins carrés
+          ),
+          color: Colors.white,
+          child: ListTile(
+            leading: CircleAvatar(backgroundImage: AssetImage(activity.image)),
+            title: Text(activity.name),
+            subtitle: Text(activity.city),
+            trailing: IconButton(
+              icon: Icon(Icons.delete, color: Colors.red),
+              onPressed: () => deleteTripActivity(activity.id),
             ),
-            color: Colors.white,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: AssetImage(activity.image),
-              ),
-              title: Text(activity.name),
-              subtitle: Text(activity.city),
-              trailing: IconButton(
-                icon: Icon(Icons.delete, color: Colors.red),
-                onPressed: () => deleteTripActivity(activity.id),
-              ),
-            ),
-          );
-        },
-        itemCount: activities.length,
-      ),
+          ),
+        );
+      },
+      itemCount: activities.length,
     );
   }
 }
