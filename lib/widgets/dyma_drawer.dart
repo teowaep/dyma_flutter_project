@@ -16,7 +16,7 @@ class DymaDrawer extends StatelessWidget {
               gradient: LinearGradient(
                 colors: [
                   Theme.of(context).primaryColor,
-                  Theme.of(context).primaryColor..withOpacity(0.5),
+                  Theme.of(context).primaryColor.withAlpha(127),
                 ],
                 begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
