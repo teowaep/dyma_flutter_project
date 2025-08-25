@@ -2,6 +2,7 @@
 
 ![Flutter](https://img.shields.io/badge/Flutter-3.22-blue)
 ![Dart](https://img.shields.io/badge/Dart-3.4-blue)
+![Current Chapter](https://img.shields.io/badge/Chapter-75-orange)
 
 A Flutter project created for learning and experimenting with Flutter development.
 
